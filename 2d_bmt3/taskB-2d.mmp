@@ -1,0 +1,26 @@
+GeoSys-MMP  Material Medium Properties ------------------------------------
+#MEDIUM_PROPERTIES  // rock mass (host rock, damage zone)
+ $GEOMETRY_DIMENSION
+  3
+ $POROSITY
+  1  0.20
+ $PERMEABILITY_TENSOR
+ ISOTROPIC  1.e-27
+; $STORAGE
+;1 2.62479E-12 // fully coupled, not needed, derived from fluid and elastic properties 
+
+#MEDIUM_PROPERTIES  // fracture and/or fault
+
+ $GEOMETRY_DIMENSION
+  3
+ $POROSITY
+  1 0.000473 // frac thickness is 4 elements, total thickness of 2.33*sin(dip angle) cm (perp to fault)
+ $PERMEABILITY_TENSOR
+ ORTHOTROPIC  1.0000 0.422618261740699 0.906307787036650 
+ $PERMEABILITY_FUNCTION_EFFSTRESS ; curve number defines the relationship permeability --- minimum principal stress
+ 16 1 4 5 0.02331
+; $STORAGE ; fracture / (rho*g) + fracture compressibility (1/Kn)
+;  1 2.145e-9 ; 4.4852191641182466870540265035678e-14
+
+#STOP
+  
