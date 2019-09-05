@@ -15,7 +15,7 @@
 import sys
 import numpy as np
 
-ifilename="mesh2d.msh" #generated from .geo file, having physical volumes defined before than surfaces (needed with material_ID)
+ifilename="2dref_65dip.msh" #generated from .geo file, having physical volumes defined before than surfaces (needed with material_ID)
 ofilename="taskB-2d.msh"
 
 def error ( message ):
